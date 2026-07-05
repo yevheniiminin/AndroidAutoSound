@@ -17,6 +17,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import com.example.androidautosound.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -192,12 +193,7 @@ class MainActivity : AppCompatActivity() {
     private fun requestBatteryExemption() {
         val power = getSystemService(PowerManager::class.java)
         if (power.isIgnoringBatteryOptimizations(packageName)) return toast(R.string.reliability_done)
-        startActivity(
-            Intent(
-                Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
-                Uri.parse("package:$packageName")
-            )
-        )
+        startActivity(Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS))
     }
 
     // --- Rendering ----------------------------------------------------------
@@ -239,7 +235,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun preview(uri: String?) {
-        uri?.let { SoundPlayer.play(this, Uri.parse(it), volumeFraction()) }
+        uri?.let { SoundPlayer.play(this, it.toUri(), volumeFraction()) }
     }
 
     private fun volumeFraction() = SoundPrefs.volume(this) / 100f

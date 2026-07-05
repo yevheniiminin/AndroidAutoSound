@@ -16,10 +16,6 @@ import java.util.concurrent.atomic.AtomicBoolean
  * Only one sound plays at a time: a new [play] tears down any in-progress
  * playback first, so tapping the two test buttons (or the same one twice) never
  * overlaps. All calls happen on the main thread.
- *
- * @param volume 0f..1f applied to both channels.
- * @param onComplete invoked once when playback finishes, fails, or is replaced —
- *   used by the Bluetooth receiver to release its keep-alive.
  */
 object SoundPlayer {
     private const val TAG = "SoundPlayer"
@@ -27,6 +23,11 @@ object SoundPlayer {
     private var current: MediaPlayer? = null
     private var stopCurrent: (() -> Unit)? = null
 
+    /**
+     * @param volume 0f..1f applied to both channels.
+     * @param onComplete invoked once when playback finishes, fails, or is
+     *   replaced — used by the Bluetooth receiver to release its keep-alive.
+     */
     fun play(context: Context, uri: Uri, volume: Float = 1f, onComplete: () -> Unit = {}) {
         stop()
 

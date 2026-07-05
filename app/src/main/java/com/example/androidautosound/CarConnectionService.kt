@@ -6,7 +6,6 @@ import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
-import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
@@ -15,6 +14,7 @@ import androidx.car.app.connection.CarConnection
 import androidx.core.app.NotificationCompat
 import androidx.core.app.ServiceCompat
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.lifecycle.LifecycleService
 
 /**
@@ -61,7 +61,7 @@ class CarConnectionService : LifecycleService() {
     private fun playDelayed(uri: String) {
         val volume = SoundPrefs.volume(this) / 100f
         handler.postDelayed(
-            { SoundPlayer.play(this, Uri.parse(uri), volume) },
+            { SoundPlayer.play(this, uri.toUri(), volume) },
             SoundPrefs.delayMs(this).toLong()
         )
     }

@@ -6,12 +6,12 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
@@ -58,7 +58,7 @@ class BluetoothReceiver : BroadcastReceiver() {
         val volume = SoundPrefs.volume(context) / 100f
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed(
-            { SoundPlayer.play(context, Uri.parse(uri), volume) { finish() } },
+            { SoundPlayer.play(context, uri.toUri(), volume) { finish() } },
             SoundPrefs.delayMs(context).toLong()
         )
         handler.postDelayed({ finish() }, MAX_ALIVE_MS) // safety before the receiver time limit
