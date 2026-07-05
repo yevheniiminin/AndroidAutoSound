@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/intro"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+        <!-- Connect sound -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/connect_label"
+            android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+        <TextView
+            android:id="@+id/soundName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_sound"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textStyle="italic" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/pickButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/pick_sound" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/testButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:enabled="false"
+                android:text="@string/test_sound" />
+        </LinearLayout>
+
+        <!-- Disconnect sound -->
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/disconnectSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/disconnect_switch" />
+
+        <LinearLayout
+            android:id="@+id/disconnectRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/disconnectName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/no_sound"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textStyle="italic" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/pickDisconnectButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/pick_sound" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/testDisconnectButton"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:enabled="false"
+                    android:text="@string/test_sound" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp" />
+
+        <!-- Volume -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/volume_label"
+                android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+            <TextView
+                android:id="@+id/volumeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="?attr/textAppearanceBodyMedium" />
+        </LinearLayout>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/volumeSlider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stepSize="5"
+            android:value="100"
+            android:valueFrom="0"
+            android:valueTo="100" />
+
+        <!-- Delay -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/delay_label"
+                android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+            <TextView
+                android:id="@+id/delayValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="?attr/textAppearanceBodyMedium" />
+        </LinearLayout>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/delaySlider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stepSize="0.5"
+            android:value="0"
+            android:valueFrom="0"
+            android:valueTo="5" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp" />
+
+        <!-- Trigger mode -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mode_label"
+            android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+        <RadioGroup
+            android:id="@+id/modeGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/modeBluetooth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mode_bluetooth" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/modeReliable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mode_reliable" />
+        </RadioGroup>
+
+        <!-- Car picker (Bluetooth mode) -->
+        <LinearLayout
+            android:id="@+id/carRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/car_label"
+                    android:textAppearance="?attr/textAppearanceLabelMedium" />
+
+                <TextView
+                    android:id="@+id/carName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_car"
+                    android:textAppearance="?attr/textAppearanceBodyLarge"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chooseCarButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/choose_car" />
+        </LinearLayout>
+
+        <!-- Reliable-mode hint -->
+        <TextView
+            android:id="@+id/reliableHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/reliable_hint"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:visibility="gone" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp" />
+
+        <!-- Enable -->
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/enableSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enable_switch"
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+        <!-- Reliability -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/reliabilityButton"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/reliability_button" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/reliability_hint"
+            android:textAppearance="?attr/textAppearanceBodySmall" />
+
+    </LinearLayout>
+
+</ScrollView>

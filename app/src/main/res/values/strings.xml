@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Android Auto Sound</string>
+    <string name="intro">Play a sound every time your phone connects to your car / Android Auto.</string>
+
+    <!-- Connect sound -->
+    <string name="connect_label">Connect sound</string>
+    <string name="no_sound">None selected</string>
+    <string name="default_sound_name">Selected sound</string>
+    <string name="pick_sound">Pick sound</string>
+    <string name="test_sound">Test</string>
+
+    <!-- Disconnect sound -->
+    <string name="disconnect_switch">Also play a sound on disconnect</string>
+
+    <!-- Playback -->
+    <string name="volume_label">Volume</string>
+    <string name="delay_label">Lead-in delay</string>
+    <string name="seconds_format">%.1fs</string>
+    <string name="percent_format">%d%%</string>
+
+    <!-- Trigger mode -->
+    <string name="mode_label">Trigger</string>
+    <string name="mode_bluetooth">Bluetooth — no notification (recommended)</string>
+    <string name="mode_reliable">Android Auto detection — most reliable</string>
+    <string name="reliable_hint">Detects wired and wireless Android Auto, but keeps a quiet background notification while listening.</string>
+    <string name="car_label">Car (Bluetooth device)</string>
+    <string name="no_car">Not chosen</string>
+    <string name="choose_car">Choose car</string>
+    <string name="bt_off">Turn on Bluetooth first.</string>
+    <string name="no_paired">No paired Bluetooth devices found. Pair your car first.</string>
+    <string name="bt_permission_needed">Bluetooth permission is needed to detect your car.</string>
+
+    <!-- Enable -->
+    <string name="enable_switch">Enabled</string>
+    <string name="pick_first">Pick a connect sound first.</string>
+    <string name="choose_car_first">Choose your car first.</string>
+
+    <!-- Reliability -->
+    <string name="reliability_button">Improve background reliability</string>
+    <string name="reliability_hint">Exempts the app from battery optimization so it isn\'t killed. Recommended.</string>
+    <string name="reliability_done">Battery optimization already disabled for this app.</string>
+
+    <!-- Foreground-service notification -->
+    <string name="channel_name">Android Auto listener</string>
+    <string name="notif_title">Listening for Android Auto</string>
+    <string name="notif_text">Your sound will play when the car connects.</string>
+</resources>
